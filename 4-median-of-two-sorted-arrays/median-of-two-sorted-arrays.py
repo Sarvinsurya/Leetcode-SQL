@@ -1,55 +1,27 @@
 class Solution(object):
     def findMedianSortedArrays(self, nums1, nums2):
-        nums3=[] #in this approach i merged 2 arrays in sorting order then i found the median of sorted arrays 
+        nums3=[]
         i=0
         j=0
-        limit=(len(nums1)+len(nums2)+1)/2
-        count=0
-        while(i<len(nums1) and j<len(nums2) and count<=limit):
+        while(i<len(nums1) and j<len(nums2)):
             if nums1[i]<nums2[j]:
                 nums3.append(nums1[i])
                 i+=1
             else:
                 nums3.append(nums2[j])
                 j+=1
-            count+=1
         while (i<len(nums1)):
             nums3.append(nums1[i])
             i+=1
-            count+=1
         while (j<len(nums2)):
             nums3.append(nums2[j])
             j+=1
-            count+=1
         n=len(nums3)
-
+  
         if n % 2 == 0: 
             return (float)(nums3[n // 2] + nums3[(n // 2) - 1]) / 2  
         else:  
             return nums3[n // 2]  
-        
-        # nums3=[]
-        # i=0
-        # j=0
-        # while(i<len(nums1) and j<len(nums2)):
-        #     if nums1[i]<nums2[j]:
-        #         nums3.append(nums1[i])
-        #         i+=1
-        #     else:
-        #         nums3.append(nums2[j])
-        #         j+=1
-        # while (i<len(nums1)):
-        #     nums3.append(nums1[i])
-        #     i+=1
-        # while (j<len(nums2)):
-        #     nums3.append(nums2[j])
-        #     j+=1
-        # n=len(nums3)
-  
-        # if n % 2 == 0: 
-        #     return (float)(nums3[n // 2] + nums3[(n // 2) - 1]) / 2  
-        # else:  
-        #     return nums3[n // 2]  
 
         
         # n1=len(nums1)
